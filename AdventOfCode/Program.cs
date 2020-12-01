@@ -1,4 +1,4 @@
-﻿using System;
+﻿using AdventOfCode.Days;
 
 namespace AdventOfCode
 {
@@ -6,7 +6,7 @@ namespace AdventOfCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Day01.Solve();
         }
     }
 }
