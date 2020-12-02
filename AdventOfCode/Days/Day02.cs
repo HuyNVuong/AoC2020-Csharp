@@ -16,6 +16,7 @@ namespace AdventOfCode.Days
                 var requirement = split[0].Split()
                     .Select(x => x.Trim()).ToList();
                 var pair = requirement[0].Trim().Split('-');
+
                 return new Password
                 {
                     Code = split[1].Trim(),
@@ -41,10 +42,9 @@ namespace AdventOfCode.Days
             {
                 var counter = password.Code.GroupBy(c => c)
                     .ToDictionary(group => group.Key, group => group.Count());
-
                 var requiredLetterCount = counter.GetValueOrDefault(password.Requirement.RequiredLetter, -1);
-                return requiredLetterCount >= password.Requirement.Min
-                       && requiredLetterCount <= password.Requirement.Max;
+
+                return requiredLetterCount >= password.Requirement.Min && requiredLetterCount <= password.Requirement.Max;
             }).ToList();
 
             return validPassword.Count;
@@ -54,7 +54,7 @@ namespace AdventOfCode.Days
         {
             var validPassword = passwords
                 .Where(password => password.Code[password.Requirement.Min - 1] == password.Requirement.RequiredLetter 
-                                   ^ password.Code[password.Requirement.Max - 1] == password.Requirement.RequiredLetter)
+                                 ^ password.Code[password.Requirement.Max - 1] == password.Requirement.RequiredLetter)
                 .ToList();
 
             return validPassword.Count;
