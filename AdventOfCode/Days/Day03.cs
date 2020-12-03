@@ -12,8 +12,8 @@ namespace AdventOfCode.Days
         public static void Solve()
         {
             var lines = FileReader.ParseDataFromFile<string>("Inputs/Day03.txt");
-            var tiles = lines.Select((line, y) =>
-                    line.Select((c, x) => (new Tile {X = x, Y = y}, c)))
+            var tiles = lines
+                .Select((line, y) => line.Select((c, x) => (new Tile {X = x, Y = y}, c)))
                 .SelectMany(x => x)
                 .ToDictionary(entry => entry.Item1, entry => entry.c);
 
@@ -37,7 +37,7 @@ namespace AdventOfCode.Days
             var treeCount = 0;
             while (position.Y < m)
             {
-                if (tiles[position] == '#')
+                if (tiles[position] == Tree)
                     treeCount++;
                 position.Y += dy;
                 position.X = (position.X + dx) % n;
