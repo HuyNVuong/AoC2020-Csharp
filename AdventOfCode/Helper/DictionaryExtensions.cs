@@ -6,22 +6,6 @@ namespace AdventOfCode.Helper
 {
     public static class DictionaryExtensions
     {
-        public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
-        {
-            if (key == null || !dictionary.ContainsKey(key))
-                return default;
-
-            return dictionary[key];
-        }
-
-        public static TValue GetOrDefault<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
-        {
-            if (key == null || !dictionary.ContainsKey(key))
-                return value;
-
-            return dictionary[key];
-        }
-
         public static TValue GetOrAddExisting<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
         {
             if (key == null)
