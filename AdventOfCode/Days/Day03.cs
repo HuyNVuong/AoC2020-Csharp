@@ -25,7 +25,6 @@ namespace AdventOfCode.Days
                                             * CountTreeFromTraversingToBottom(tiles, 5, 1)
                                             * CountTreeFromTraversingToBottom(tiles, 7, 1)
                                             * CountTreeFromTraversingToBottom(tiles, 1, 2);
-
             Console.WriteLine(treeCountForAllVelocities);
         }
 

@@ -19,10 +19,10 @@ namespace AdventOfCode.Days
 
                 return new Password
                 {
-                    Code = split[1].Trim(),
+                    Code = split[1],
                     Requirement = new PasswordRequirement
                     {
-                        RequiredLetter = requirement[1].Trim().First(),
+                        RequiredLetter = requirement[1].First(),
                         Min = int.Parse(pair[0]),
                         Max = int.Parse(pair[1])
                     }
