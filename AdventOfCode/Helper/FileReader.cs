@@ -16,5 +16,15 @@ namespace AdventOfCode.Helper
 
             return lines;
         }
+
+        public static List<T> ParseDataFromFile<T>(string fileLocation, string delimiter)
+        {
+            var lines = File.ReadAllText(fileLocation)
+                .Split(delimiter)
+                .Select(line => (T)Convert.ChangeType(line.Trim('\r', '\n'), typeof(T)))
+                .ToList();
+
+            return lines;
+        }
     }
 }
