@@ -46,24 +46,25 @@ namespace AdventOfCode.Days
                     var key = broken[0].Trim();
                     var value = broken[1].Trim();
                     var _ = int.TryParse(value, out var numValue);
-                    bool HeightTest(string height)
+
+                    static bool HeightTest(string height)
                     {
                         if (height.Contains("cm"))
                         {
-                            return value.Length == 5
+                            return height.Length == 5
                                    && int.Parse(height.Substring(0, 3)) >= 150
                                    && int.Parse(height.Substring(0, 3)) <= 193;
                         }
                         if (height.Contains("in"))
                         {
-                            return value.Length == 4
+                            return height.Length == 4
                                    && int.Parse(height.Substring(0, 2)) >= 59
                                    && int.Parse(height.Substring(0, 2)) <= 76;
                         }
                         return false;
                     }
 
-                    bool RegexTest(string str, string pattern)
+                    static bool RegexTest(string str, string pattern)
                     {
                         var regex = new Regex(pattern);
                         return regex.IsMatch(str);
