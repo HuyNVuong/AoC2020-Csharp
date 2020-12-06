@@ -3,10 +3,10 @@
 namespace AdventOfCode
 {
     class Program
-    {
+    {   
         static void Main(string[] args)
         {
-            Day04.Solve();
+            Day05.Solve();
         }
     }
 }
