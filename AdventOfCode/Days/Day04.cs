@@ -10,9 +10,8 @@ namespace AdventOfCode.Days
     {
         public static void Solve()
         {
-            var raw = FileReader.ParseDataFromFile<string>("Inputs/Day04.txt", "").First();
-            var passportsData = raw.Split(new[] {Environment.NewLine + Environment.NewLine},
-                    StringSplitOptions.RemoveEmptyEntries).ToList();
+            var passportsData = FileReader.ParseDataFromFile<string>("Inputs/Day04.txt",
+                Environment.NewLine + Environment.NewLine);
             var passports = passportsData
                 .Select(data => data.Split('\n').Select(splits => splits.Trim().Split())
                     .SelectMany(x => x).ToList())
