@@ -49,6 +49,7 @@ namespace AdventOfCode.Days
             Console.WriteLine(BagsContainsShinyGoldBagCount(unWeightedGraph));
 
             var bagContainsInShinyGoldBag = BagsContainsInShinyGoldBag(weightedGraph);
+            Console.WriteLine(bagContainsInShinyGoldBag);
         }
 
         private static int BagsContainsShinyGoldBagCount(IReadOnlyDictionary<string, List<string>> unWeightedGraph)
@@ -66,7 +67,6 @@ namespace AdventOfCode.Days
         private static int BagsContainsInShinyGoldBag(IReadOnlyDictionary<string, List<Bag>> weightedGraph)
         {
             var queue = new Queue<Bag>();
-            var seen = new HashSet<string>();
             queue.Enqueue(new Bag{ColorCode = "shinygold", Requirement = 1});
             var totalRequirement = 0;
             while (queue.Any())
@@ -77,11 +77,8 @@ namespace AdventOfCode.Days
                 if (!weightedGraph.ContainsKey(currentBag.ColorCode)) continue;
                 foreach (var edge in weightedGraph[currentBag.ColorCode])
                 {
-                    //if (seen.Contains(edge.ColorCode)) continue;
                     queue.Enqueue(new Bag{ColorCode = edge.ColorCode, Requirement = currentBag.Requirement * edge.Requirement});
                 }
-
-                seen.Add(currentBag.ColorCode);
             }
 
             return totalRequirement - 1;
