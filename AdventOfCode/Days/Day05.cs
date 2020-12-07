@@ -41,12 +41,12 @@ namespace AdventOfCode.Days
         {
             var seatRows = lines
                 .Select(line => line.Substring(0, 7))
-                .Select(line => line.Select(c => c == 'B' ? '1' : '0').ToStringRepr())
+                .Select(line => line.Select(c => c == 'B' ? '1' : '0').AsStringRepr())
                 .Select(binary => Convert.ToInt32(binary, 2))
                 .ToList();
 
             var seatColumns = lines
-                .Select(line => line.Skip(7).Select(c => c == 'R' ? '1' : '0').ToStringRepr())
+                .Select(line => line.Skip(7).Select(c => c == 'R' ? '1' : '0').AsStringRepr())
                 .Select(binary => Convert.ToInt32(binary, 2))
                 .ToList();
 

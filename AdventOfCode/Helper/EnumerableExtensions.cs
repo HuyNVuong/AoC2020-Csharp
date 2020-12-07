@@ -5,7 +5,7 @@ namespace AdventOfCode.Helper
 {
     public static class EnumerableExtensions
     {
-        public static string ToStringRepr<TValue>(this IEnumerable<TValue> enumerable, string delimiter = "")
+        public static string AsStringRepr<TValue>(this IEnumerable<TValue> enumerable, string delimiter = "")
         {
             if (enumerable == null)
                 throw new ArgumentNullException();
