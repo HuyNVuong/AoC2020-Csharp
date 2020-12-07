@@ -30,14 +30,14 @@ namespace AdventOfCode.Helper
                 entry => entry.Value);
         }
 
-        public static Dictionary<TKey, TValue> DeepCopy<TKey, TValue>(this Dictionary<TKey, TValue> original) where TValue : ICloneable
+        public static Dictionary<TKey, TValue> DeepCopy<TKey, TValue>(this Dictionary<TKey, TValue> dictionary) where TValue : ICloneable
         {
-            var ret = new Dictionary<TKey, TValue>(original.Count, original.Comparer);
-            foreach (var (key, value) in original)
+            var clone = new Dictionary<TKey, TValue>(dictionary.Count, dictionary.Comparer);
+            foreach (var (key, value) in dictionary)
             {
-                ret.Add(key, (TValue)value.Clone());
+                clone.Add(key, (TValue)value.Clone());
             }
-            return ret;
+            return clone;
         }
 
         public static void PutIfAbsent<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key, TValue value)
