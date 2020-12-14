@@ -1,4 +1,8 @@
 # AoC2020-Csharp
 
-## Highlights
-* Getting closer to leaderboard everyday ... (almost top 1000 on day07)
+## My Previous Advent of Code solution
+* 2019
+  - C# solution
+  - Dart solution
+* 2018
+  - Python solution
