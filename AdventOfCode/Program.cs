@@ -6,7 +6,7 @@ namespace AdventOfCode
     {   
         static void Main(string[] args)
         {
-            Day10.Solve();
+            Day11.Solve();
         }
     }
 }

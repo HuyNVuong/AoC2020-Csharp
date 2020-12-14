@@ -16,6 +16,7 @@ namespace AdventOfCode.Days
 
             var partBResult = ThreeSum(values);
             Console.WriteLine(partBResult);
+
         }
 
         private static int TwoSum(List<int> values)
@@ -46,6 +47,8 @@ namespace AdventOfCode.Days
                     }
                 }
             }
+
+
 
             return -1;
         }
