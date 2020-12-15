@@ -55,16 +55,12 @@ namespace AdventOfCode.Days
                         break;
                     case 'L':
                         for (var i = 0; i < distance / 90; i++)
-                        {
                             (dx, dy) = (dx, dy).TurnLeft();
-                        }
 
                         break;
                     case 'R':
                         for (var i = 0; i < distance / 90; i++)
-                        {
                             (dx, dy) = (dx, dy).TurnRight();
-                        }
 
                         break;
                     case 'F':
@@ -103,16 +99,12 @@ namespace AdventOfCode.Days
                         break;
                     case 'L':
                         for (var i = 0; i < distance / 90; i++)
-                        {
                             (dx, dy) = (dx, dy).TurnLeft();
-                        }
 
                         break;
                     case 'R':
                         for (var i = 0; i < distance / 90; i++)
-                        {
                             (dx, dy) = (dx, dy).TurnRight();
-                        }
 
                         break;
                     case 'F':
