@@ -13,15 +13,16 @@ namespace AdventOfCode.Helper
             return string.Join(delimiter, enumerable);
         }
 
-        public static List<List<TValue>> Transpose<TValue>(this IEnumerable<IEnumerable<TValue>> enumerable)
+        public static IEnumerable<IEnumerable<TValue>> Transpose<TValue>(
+            this IEnumerable<IEnumerable<TValue>> enumerable
+            )
         {
             var list = enumerable.Select(inner => inner.ToList()).ToList();
 
             var transposedList = list
-                .SelectMany(inner => inner.Select((item, index) => new { item, index }))
+                .SelectMany(inner => inner.Select((item, index) => new {item, index}))
                 .GroupBy(i => i.index, i => i.item)
-                .Select(g => g.ToList())
-                .ToList();
+                .Select(g => g);
 
             return transposedList;
         }
