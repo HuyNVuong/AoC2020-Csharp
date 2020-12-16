@@ -9,8 +9,8 @@ namespace AdventOfCode.Days
     {
         public static void Solve()
         {
-            var groupData = FileReader.ParseDataFromFile<string>("Inputs/Day06.txt", 
-                Environment.NewLine + Environment.NewLine);
+            var groupData = FileReader.ParseDataFromFile<string, string>("Inputs/Day06.txt", 
+                Environment.NewLine, Environment.NewLine);
 
             var totalAnswerCount = GetTotalYesAnswerCount(groupData);
             Console.WriteLine(totalAnswerCount);
