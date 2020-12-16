@@ -69,19 +69,16 @@ namespace AdventOfCode.Days
             var candidatesForTicketValue = validTicketTranspose
                 .Select(column => column
                     .Select(ticketValue => fields
-                        .Where(field => ticketValue >= field.Item1 && ticketValue <= field.Item2)
+                        .Where(field => ticketValue >= field.Lower && ticketValue <= field.Upper)
                         .Select(field => field.Name)
                         .ToList())
                     .ToList())
                 .ToList();
 
-            var orderedCandidates = candidatesForTicketValue.Select((f, i) =>
+            var orderedCandidates = candidatesForTicketValue.Select((candidate, i) =>
             {
-                var intersect = f[0];
-                foreach (var next in f)
-                {
-                    intersect = intersect.Intersect(next).ToList();
-                }
+                var intersect = candidate[0];
+                intersect = candidate.Aggregate(intersect, (current, next) => current.Intersect(next).ToList());
 
                 return (intersect, i);
             }).OrderBy(tuple => tuple.intersect?.Count ?? -1).ToList();
