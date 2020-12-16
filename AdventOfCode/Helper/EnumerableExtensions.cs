@@ -14,8 +14,7 @@ namespace AdventOfCode.Helper
         }
 
         public static IEnumerable<IEnumerable<TValue>> Transpose<TValue>(
-            this IEnumerable<IEnumerable<TValue>> enumerable
-            )
+            this IEnumerable<IEnumerable<TValue>> enumerable)
         {
             var list = enumerable.Select(inner => inner.ToList()).ToList();
 
