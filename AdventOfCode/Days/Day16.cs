@@ -61,7 +61,7 @@ namespace AdventOfCode.Days
         {
             var validTickets = nearbyTickets
                 .Where(ticket => ticket.All(ticketValue => fields
-                    .Any(field => ticketValue >= field.Item1 && ticketValue <= field.Item2)))
+                    .Any(field => ticketValue >= field.Lower && ticketValue <= field.Upper)))
                 .ToList();
 
             var validTicketTranspose = validTickets.Transpose();
@@ -77,17 +77,17 @@ namespace AdventOfCode.Days
 
             var orderedCandidates = candidatesForTicketValue.Select((candidate, index) =>
             {
-                var intersect = candidate[0];
-                intersect = candidate.Aggregate(intersect, (current, next) => current.Intersect(next).ToList());
+                var possibleLabels = candidate[0];
+                possibleLabels = candidate.Aggregate(possibleLabels, (current, next) => current.Intersect(next).ToList());
 
-                return (intersect, index);
-            }).OrderBy(tuple => tuple.intersect?.Count ?? -1).ToList();
+                return (possibleLabels, index);
+            }).OrderBy(tuple => tuple.possibleLabels?.Count ?? -1).ToList();
 
             var seen = new HashSet<string>();
             var labelMap = new Dictionary<int, string>();
-            foreach (var (intersect, index) in orderedCandidates)
+            foreach (var (possibleLabels, index) in orderedCandidates)
             {
-                var label = intersect.First(l => !seen.Contains(l));
+                var label = possibleLabels.First(possibleLabel => !seen.Contains(possibleLabel));
                 labelMap.Add(index, label);
                 seen.Add(label);
             }
