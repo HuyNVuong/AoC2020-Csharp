@@ -75,12 +75,12 @@ namespace AdventOfCode.Days
                     .ToList())
                 .ToList();
 
-            var orderedCandidates = candidatesForTicketValue.Select((candidate, i) =>
+            var orderedCandidates = candidatesForTicketValue.Select((candidate, index) =>
             {
                 var intersect = candidate[0];
                 intersect = candidate.Aggregate(intersect, (current, next) => current.Intersect(next).ToList());
 
-                return (intersect, i);
+                return (intersect, index);
             }).OrderBy(tuple => tuple.intersect?.Count ?? -1).ToList();
 
             var seen = new HashSet<string>();
