@@ -56,7 +56,7 @@ namespace AdventOfCode.Days
             return nextBatch;
         }
         
-        private static HashSet<Cube> HyperCycle(this HashSet<Cube> cubes)
+        private static HashSet<Cube> HyperCycle(this ICollection<Cube> cubes)
         {
             var candidates = cubes
                 .Select(cube => cube.HyperNeighbors())

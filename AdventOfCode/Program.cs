@@ -2,11 +2,11 @@
 
 namespace AdventOfCode
 {
-    class Program
-    {   
-        static void Main(string[] args)
+    internal static class Program
+    {
+        private static void Main(string[] args)
         {
-            Day17.Solve();
+            Day18.Solve();
         }
     }
 }
